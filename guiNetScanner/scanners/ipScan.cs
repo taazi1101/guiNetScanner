@@ -1,17 +1,13 @@
 ﻿using guiNetScanner;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace networkMultiScanner.scanners
 {
     internal class IpScan
     {
+
         public static async void StdScan(string ipBase, int timeOut,bool getHostname, Form1.ipAddresses addrss,ListBox resultBox,ProgressBar prog,Button button,CancellationToken cts) // Ipbase: x.y.z.FUZZ , timeOut: milliseconds
         {
             Ping ping = new Ping();

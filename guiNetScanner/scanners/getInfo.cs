@@ -1,16 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.NetworkInformation;
+﻿using System.Net.NetworkInformation;
 using System.Net;
 using ArpLookup;
+using System.Text.Encodings.Web;
+using System.Diagnostics.Eventing.Reader;
+using System.Net.Sockets;
 
 namespace guiNetScanner.scanners
 {
     internal class getInfo
     {
+        private static string MacLookup(string macAddr)
+        {
+            const string apiAddr = "https://api.macvendors.com/";
+
+            HttpClient client = new HttpClient();
+            UrlEncoder encoder = UrlEncoder.Create();
+            HttpRequestMessage req = new() { RequestUri = new Uri(apiAddr + encoder.Encode(macAddr)), Method = new HttpMethod("GET") }; 
+           
+            HttpResponseMessage response = client.Send(req);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return response.Content.ReadAsStringAsync().Result;
+            }
+            else { return "Could not resolve vendor."; }
+        }
 
         public static string stdInfo(string ip)
         {
@@ -20,13 +33,17 @@ namespace guiNetScanner.scanners
             string ipv6 = string.Empty;
             string mac = string.Empty;
             string roundTrip = string.Empty;
+            string vendor = string.Empty;
+            bool gotMac = false;
 
             try { hostName = Dns.GetHostEntry(ip).HostName; }catch(Exception) { hostName = "Could not resolve hostname."; }
-            try { ipv6 = ipAddress.MapToIPv6().ToString(); }catch (Exception) { ipv6 = "Could not resolve IPV6 address."; }
+            try { ipv6 = ipAddress.MapToIPv6().ToString();gotMac = true; }catch (Exception) { ipv6 = "Could not resolve IPV6 address."; }
             try { mac = Arp.Lookup(ipAddress).ToString(); }catch (Exception) { mac = "Could not resolve MAC address."; }
             try { roundTrip = ping.Send(ipAddress).RoundtripTime.ToString(); }catch (Exception) { roundTrip = "Could not resolve roundtrip time."; }
+            if (gotMac) { try { vendor = MacLookup(mac); } catch (Exception) { vendor = "Could not resolve vendor."; } }
+            else { vendor = "Could not resolve vendor."; }
 
-            return "Hostname: " + hostName + "\n" + "IPV4 address: " + ip + "\n" + "IPV6 address: " + ipv6 + "\n" + "Physical (MAC) address: " + mac + "\n" + "Round trip time: " + roundTrip + "ms\n";
+            return "Hostname: " + hostName + "\n" + "IPV4 address: " + ip + "\n" + "IPV6 address: " + ipv6 + "\n" + "Physical (MAC) address: " + mac + "\n" + "Vendor: " + vendor + "\n" + "Round trip time: " + roundTrip + "ms\n";
         }
     }
 }

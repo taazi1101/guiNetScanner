@@ -18,8 +18,8 @@ namespace guiNetScanner
         {
             InitializeComponent();
         }
-        
-        private void set(string ip,Label label)
+
+        private void set(string ip, RichTextBox label)
         {
             string info = getInfo.stdInfo(ip);
             label.Invoke(new MethodInvoker(delegate { label.Text = info; }));
@@ -27,14 +27,19 @@ namespace guiNetScanner
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            f2Label1.Text = "Loading IP info for (" + ip + ")... This might take a second.";
-            Thread setThread = new Thread(delegate(){ set(ip, f2Label1); });
+            richTextBox1.Text = "Loading IP info for (" + ip + ")... This might take a second.";
+            Thread setThread = new Thread(delegate () { set(ip, richTextBox1); });
             setThread.Start();
         }
 
         public void setIp(string infos)
         {
             ip = infos;
+        }
+
+        private void f2Label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

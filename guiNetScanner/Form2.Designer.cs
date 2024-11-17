@@ -28,32 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            f2Label1 = new Label();
+            richTextBox1 = new RichTextBox();
             SuspendLayout();
             // 
-            // f2Label1
+            // richTextBox1
             // 
-            f2Label1.AutoSize = true;
-            f2Label1.Location = new Point(12, 9);
-            f2Label1.Name = "f2Label1";
-            f2Label1.Size = new Size(59, 15);
-            f2Label1.TabIndex = 0;
-            f2Label1.Text = "Loading...";
+            richTextBox1.BackColor = SystemColors.ControlLight;
+            richTextBox1.Location = new Point(12, 12);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
+            richTextBox1.Size = new Size(338, 328);
+            richTextBox1.TabIndex = 1;
+            richTextBox1.Text = "";
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(356, 425);
-            Controls.Add(f2Label1);
+            BackColor = SystemColors.AppWorkspace;
+            ClientSize = new Size(362, 352);
+            Controls.Add(richTextBox1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form2";
+            ShowInTaskbar = false;
+            Text = "IP Info";
             Load += Form2_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label f2Label1;
+        private RichTextBox richTextBox1;
     }
 }
