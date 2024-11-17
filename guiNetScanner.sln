@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "guiNetScanner", "guiNetScanner\guiNetScanner.csproj", "{388C2F19-21BE-4DF3-A83B-3D88FB251BCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{388C2F19-21BE-4DF3-A83B-3D88FB251BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388C2F19-21BE-4DF3-A83B-3D88FB251BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388C2F19-21BE-4DF3-A83B-3D88FB251BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388C2F19-21BE-4DF3-A83B-3D88FB251BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62826EEA-4B78-4024-8939-5610F537091E}
+	EndGlobalSection
+EndGlobal
