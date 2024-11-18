@@ -9,6 +9,22 @@ namespace guiNetScanner.scanners
 {
     internal class getInfo
     {
+
+        public static string GetOwnIp()
+        {
+            try
+            {
+                string localIP;
+                using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
+                {
+                    socket.Connect("8.8.8.8", 65530);
+                    IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
+                    localIP = endPoint.Address.ToString();
+                }
+                return localIP;
+            }
+            catch (Exception ex) { return string.Empty; }
+        }
         private static string MacLookup(string macAddr)
         {
             const string apiAddr = "https://api.macvendors.com/";

@@ -35,6 +35,7 @@ namespace guiNetScanner
             errLabel.Text = "";
             progressBar1.Visible = false;
             progressBar2.Visible = false;
+            textBox1.Text = getInfo.GetOwnIp();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -153,6 +154,16 @@ namespace guiNetScanner
                 //form2.Activate();
             }
             else { errLabel.Text = "No address selected."; }
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

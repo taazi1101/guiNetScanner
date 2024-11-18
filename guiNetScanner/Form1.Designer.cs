@@ -78,7 +78,7 @@
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(12, 99);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(150, 319);
+            listBox1.Size = new Size(150, 304);
             listBox1.TabIndex = 2;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -207,9 +207,10 @@
             numericUpDown3.Maximum = new decimal(new int[] { int.MaxValue, 0, 0, 0 });
             numericUpDown3.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(120, 23);
+            numericUpDown3.Size = new Size(52, 23);
             numericUpDown3.TabIndex = 16;
             numericUpDown3.Value = new decimal(new int[] { 100, 0, 0, 0 });
+            numericUpDown3.ValueChanged += numericUpDown3_ValueChanged;
             // 
             // label7
             // 
@@ -234,7 +235,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(243, 424);
+            button3.Location = new Point(249, 424);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 19;
