@@ -165,5 +165,27 @@ namespace guiNetScanner
         {
 
         }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            errLabel.Text = "";
+            if (listBox2.SelectedIndex != -1)
+            {
+                string value = listBox2.Items[listBox2.SelectedIndex].ToString();
+                Form3 Form3 = new();
+                Form3.setIp(value);
+                Form3.ShowDialog();
+
+            }
+            else
+            {
+                errLabel.Text = "SELECT PORT TO CONNECT";
+            }
+        }
     }
 }

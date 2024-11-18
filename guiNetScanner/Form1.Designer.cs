@@ -49,6 +49,7 @@
             errLabel = new Label();
             button3 = new Button();
             checkBox1 = new CheckBox();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
@@ -182,6 +183,7 @@
             listBox2.Name = "listBox2";
             listBox2.Size = new Size(150, 259);
             listBox2.TabIndex = 13;
+            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -255,12 +257,23 @@
             checkBox1.Text = "Get hostnames";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            button4.Location = new Point(168, 424);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 21;
+            button4.Text = "Connect";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(329, 450);
+            Controls.Add(button4);
             Controls.Add(checkBox1);
             Controls.Add(button3);
             Controls.Add(errLabel);
@@ -316,5 +329,6 @@
         private Label errLabel;
         private Button button3;
         private CheckBox checkBox1;
+        private Button button4;
     }
 }
