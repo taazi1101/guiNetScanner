@@ -7,3 +7,7 @@ Ip fuzzing
 Port scanning
 
 Ip information
+
+Requires:
+
+.Net runtime
